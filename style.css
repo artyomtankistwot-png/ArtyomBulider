@@ -1,13 +1,28 @@
 body {
     font-family: system-ui, -apple-system, sans-serif;
-    font-size:large;
+    font-size: large;
     display: flex;
-    background-color: gray;
+    background-color: #333;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    overflow-x: hidden;
+    
+    
+}
+
+#canvas-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .Blur {
+    
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(8px);
     background-color: rgba(255, 255, 255, 0.3);
@@ -21,15 +36,14 @@ body {
     position: absolute;
     top: 10%;
     left: 15px;
+    z-index: 2;
 
     transition: transform 1s ease, box-shadow 1s ease;
 }
 
 .Blur:hover {
-    transform: translateY(-5px);
-    transform: scale(1.01);
-
-    box-shadow: 0 5px 18px;
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.3);
 }
 
 .info {
@@ -43,18 +57,16 @@ body {
     width: 190px;
 
     position: absolute;
-
     top: 10px;
     left: 15px;
+    z-index: 2;
 
-        transition: transform 1s ease, box-shadow 1s ease;
+    transition: transform 1s ease, box-shadow 1s ease;
 }
 
 .info:hover {
-    transform: translateY(-5px);
-    transform: scale(1.01);
-
-    box-shadow: 0 5px 18px;
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.3);
 }
 
 .PC {
@@ -69,16 +81,30 @@ body {
     height: 400px;
 
     position: absolute;
-
     top: 10%;
-    left: 1625px;
+    right: 15px;
+    z-index: 2;
 
     transition: transform 1s ease, box-shadow 1s ease;
 }
 
 .PC:hover {
-    transform: translateY(-5px);
-    transform: scale(1.01);
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.3);
+}
 
-    box-shadow: 0 5px 18px;
+.corner-image {
+    position: absolute;       /* Фиксируем на экране */
+    top: 20px;                /* Отступ сверху (или поменяй на bottom) */
+    right: 400px;              /* Отступ справа (или поменяй на left) */
+    width: 120px;             /* Ширина картинки (настрой под себя) */
+    height: auto;             /* Сохраняет пропорции */
+    border-radius: 12px;      /* Скругленные углы (если хочешь) */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Тонкая рамка в стиле твоего сайта */
+    z-index: 5;               /* Чтобы картинка была поверх фона */
+    transition: transform 1s ease, box-shadow 1s ease;
+}
+.corner-image:hover {
+        transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.3);
 }
